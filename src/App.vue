@@ -1,15 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavComponent></NavComponent>
+  <HeaderComponent></HeaderComponent>
+  <!-- About section-->
+  <section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Aula 51 - Iniciando com Vue.js</h2>
+                <p class="lead">
+                  Nesta aula aprendemos como funciona a estrutura do vue.js e como podemos iniciar
+                </p>
+            </div>
+        </div>
+    </div>
+  </section>
+  <FooterComponent></FooterComponent>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavComponent from './components/NavComponent.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavComponent,
+    HeaderComponent,
+    FooterComponent
   }
 }
 </script>
