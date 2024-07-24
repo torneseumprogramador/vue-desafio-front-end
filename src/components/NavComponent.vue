@@ -8,7 +8,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><router-link class="nav-link" to="/produtos">Produtos</router-link></li>
           <li class="nav-item"><router-link class="nav-link" to="/sobre">Sobre</router-link></li>
-          <li class="nav-item"><router-link class="nav-link" to="/login">Login</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/sair">Sair</router-link></li>
         </ul>
       </div>
     </div>

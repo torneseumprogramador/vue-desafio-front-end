@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './paginas/HomePage'
 import SobrePage from './paginas/SobrePage'
 import NotFoundPage from './paginas/NotFoundPage'
+import ProdutosPage from './paginas/ProdutosPage'
+import LoginPage from './paginas/LoginPage'
 
 const routes = [
   {
@@ -13,6 +15,16 @@ const routes = [
     path: '/sobre',
     name: 'SobrePage',
     component: SobrePage
+  },
+  {
+    path: '/produtos',
+    name: 'ProdutosPage',
+    component: ProdutosPage
+  },
+  {
+    path: '/login',
+    name: 'LoginPage',
+    component: LoginPage
   },
   {
     path: '/:pathMatch(.*)*',
