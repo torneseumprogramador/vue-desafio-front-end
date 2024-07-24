@@ -4,8 +4,7 @@ node_modules
 
 
 # local env files
-.env.local
-.env.*.local
+*.env
 
 # Log files
 npm-debug.log*
@@ -95,6 +94,7 @@ $RECYCLE.BIN/
 *.msix
 *.msm
 *.msp
+
 
 # Windows shortcuts
 *.lnk

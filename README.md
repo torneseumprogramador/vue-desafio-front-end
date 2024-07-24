@@ -1,5 +1,11 @@
 # vue-desafio-front-end
 
+## .env
+```
+# copiar o .env.sample para .env arquivo de configuração da API
+cp .env.sample .env
+```
+
 ## Project setup
 ```
 yarn install
