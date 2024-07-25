@@ -12,7 +12,12 @@ class ProdutoServico {
     }
 
     static async salvar(produto) {
-        if(!produto?.id || produto?.id < 1){
+        if(!produto) throw "Preencha o produto";
+        if(!produto.nome) throw "Preencha o nome do produto";
+        if(!produto.preco) throw "Preencha o preço do produto";
+        if(!produto.quantidade_estoque) throw "Preencha a quantidade de estoque";
+
+        if(!produto.id || produto.id < 1){
             await API.post(`/produto`, produto);
         }
         else{

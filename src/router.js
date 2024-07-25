@@ -2,8 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './paginas/HomePage'
 import SobrePage from './paginas/SobrePage'
 import NotFoundPage from './paginas/NotFoundPage'
-import ProdutosPage from './paginas/produtos/ProdutosPage'
 import LoginPage from './paginas/LoginPage'
+
+import ProdutosPage from './paginas/produtos/ProdutosPage'
+import NovoProdutoPage from './paginas/produtos/NovoProdutoPage'
+import AlterarProdutoPage from './paginas/produtos/AlterarProdutoPage'
 
 const routes = [
   {
@@ -20,6 +23,16 @@ const routes = [
     path: '/produtos',
     name: 'ProdutosPage',
     component: ProdutosPage
+  },
+  {
+    path: '/produtos/novo',
+    name: 'NovoProdutoPage',
+    component: NovoProdutoPage
+  },
+  {
+    path: '/produtos/:id',
+    name: 'AlterarProdutoPage',
+    component: AlterarProdutoPage
   },
   {
     path: '/login',

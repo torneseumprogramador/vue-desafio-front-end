@@ -2,10 +2,15 @@
     <NavComponent></NavComponent>
     <!-- About section-->
     <section id="about">
-      <div class="container px-4">
-          <div class="row gx-4 justify-content-center">
+      <div class="">
+          <div class="row justify-content-center">
               <div class="col-lg-8">
-                  <h2>Lista de produtos</h2>
+                  <div class="row">
+                    <h2 class="col-9">Lista de produtos</h2>
+                    <div class="col-3" style="text-align: right;">
+                      <router-link class="btn btn-primary" to="/produtos/novo">Novo produto</router-link>
+                    </div>
+                  </div>
                   <hr>
                   <table class="table table-striped">
                     <thead>
@@ -17,7 +22,7 @@
                         <th>Data de Criação</th>
                         <th>Data de Modificação</th>
                         <th>Quantidade em Estoque</th>
-                        <th></th>
+                        <th style="width: 180px;"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -30,7 +35,10 @@
                         <td>{{ formatDate(produto.data_modificacao) }}</td>
                         <td>{{ produto.quantidade_estoque }}</td>
                         <td>
-                          <button @click="() => { excluir(produto.id) }" class="btn btn-danger">Excluir</button>
+                          <div class="flex">
+                            <router-link style="margin-right: 5px;" class="btn btn-warning" :to="`/produtos/${produto.id}`">Alterar</router-link>
+                            <button @click="() => { excluir(produto.id) }" class="btn btn-danger">Excluir</button>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
