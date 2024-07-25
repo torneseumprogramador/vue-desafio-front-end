@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './paginas/HomePage'
 import SobrePage from './paginas/SobrePage'
 import NotFoundPage from './paginas/NotFoundPage'
-import ProdutosPage from './paginas/ProdutosPage'
+import ProdutosPage from './paginas/produtos/ProdutosPage'
 import LoginPage from './paginas/LoginPage'
 
 const routes = [

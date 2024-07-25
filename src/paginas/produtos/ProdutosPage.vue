@@ -17,6 +17,7 @@
                         <th>Data de Criação</th>
                         <th>Data de Modificação</th>
                         <th>Quantidade em Estoque</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,9 @@
                         <td>{{ formatDate(produto.data_criacao) }}</td>
                         <td>{{ formatDate(produto.data_modificacao) }}</td>
                         <td>{{ produto.quantidade_estoque }}</td>
+                        <td>
+                          <button @click="() => { excluir(produto.id) }" class="btn btn-danger">Excluir</button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -39,10 +43,10 @@
   </template>
   
   <script>
-  import NavComponent from '../components/NavComponent.vue'
-  import FooterComponent from '../components/FooterComponent.vue'
-  import API from '../config/API'
-  import DataHelper from '../helpers/DateHelper'
+  import NavComponent from '../../components/NavComponent'
+  import FooterComponent from '../../components/FooterComponent'
+  import ProdutoServico from '../../servicos/ProdutoServico'
+  import DataHelper from '../../helpers/DateHelper'
 
   export default {
     name: 'ProdutosPage',
@@ -58,15 +62,23 @@
     methods: {
       formatDate(dateString) {
         return DataHelper.formatBr(dateString);
+      },
+      async carregar() {
+        try {
+          this.produtos = await ProdutoServico.todos();
+        } catch (error) {
+          console.error('Erro ao buscar dados da API:', error);
+        }
+      },
+      async excluir(produtoId){
+        if(confirm("Confirma ?")){
+          await ProdutoServico.excluirPorId(produtoId);
+          this.carregar();
+        }
       }
     },
-    async created() {
-      try {
-        const response = await API.get('/produtos');
-        this.produtos = response.data;
-      } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
-      }
+    created() {
+      this.carregar()
     }
   }
   </script>
