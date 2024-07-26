@@ -8,7 +8,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><router-link class="nav-link" to="/produtos">Produtos</router-link></li>
           <li class="nav-item"><router-link class="nav-link" to="/sobre">Sobre</router-link></li>
-          <li class="nav-item"><router-link class="nav-link" to="/sair">Sair</router-link></li>
+          <li class="nav-item"><a href="#" class="nav-link" @click="sair">Sair</a></li>
         </ul>
       </div>
     </div>
@@ -16,8 +16,17 @@
 </template>
 
 <script>
+import LoginServico from '../servicos/LoginServico'
+
 export default {
   name: 'NavComponent',
+  methods: {
+    sair() {
+      LoginServico.clearLocalStorage();
+      this.$router.push('/login');
+    }
+  }
+  
 }
 
 </script>

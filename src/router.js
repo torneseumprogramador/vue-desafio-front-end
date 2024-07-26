@@ -8,31 +8,38 @@ import ProdutosPage from './paginas/produtos/ProdutosPage'
 import NovoProdutoPage from './paginas/produtos/NovoProdutoPage'
 import AlterarProdutoPage from './paginas/produtos/AlterarProdutoPage'
 
+import { authGuard } from './guards/authGuard'
+
 const routes = [
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage
+    component: HomePage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/sobre',
     name: 'SobrePage',
-    component: SobrePage
+    component: SobrePage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/produtos',
     name: 'ProdutosPage',
-    component: ProdutosPage
+    component: ProdutosPage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/produtos/novo',
     name: 'NovoProdutoPage',
-    component: NovoProdutoPage
+    component: NovoProdutoPage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/produtos/:id',
     name: 'AlterarProdutoPage',
-    component: AlterarProdutoPage
+    component: AlterarProdutoPage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
@@ -50,5 +57,7 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach(authGuard);
 
 export default router

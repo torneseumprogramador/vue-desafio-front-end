@@ -1,4 +1,5 @@
 import axios from 'axios';
+import LoginServico from '../servicos/LoginServico';
 
 const API = axios.create({
   baseURL: process.env.VUE_APP_API_BASE_URL,
@@ -8,8 +9,7 @@ const API = axios.create({
 });
 
 API.interceptors.request.use(config => {
-  // const token = localStorage.getItem('token'); // Supondo que o token esteja armazenado no localStorage
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzIxOTAxMzU1LCJleHAiOjE3MjE5ODc3NTV9.HutPJVCV4AI_0354lOdUUGBj11-E8Feh0ZiZWoVSJfg"
+  const token = LoginServico.getToken();
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
